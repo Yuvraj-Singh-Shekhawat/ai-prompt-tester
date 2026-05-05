@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Prompt Tester | Ethara.AI Assessment</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 AI Prompt Tester</h1>
+        <p class="subtitle">Test & Evaluate LLM prompts for Ethara.AI</p>
+        
+        <!-- Prompt Tester -->
+        <div class="tester">
+            <div class="input-group">
+                <label>📝 Your Prompt</label>
+                <textarea id="promptInput" rows="3" placeholder="Try: 'What is AI?' or 'Explain machine learning'"></textarea>
+            </div>
+            
+            <div class="input-row">
+                <input id="modelSelect" type="text" placeholder="Model: GPT-4 / Llama / etc" value="GPT-4">
+                <button class="btn" onclick="testPrompt()">🚀 Test Prompt</button>
+            </div>
+            
+            <div id="responseBox" class="response-box">Response will appear here... (Ctrl+Enter to test)</div>
+            
+            <div id="qualityCheck" class="quality-check">
+                <h4>📊 Auto Quality Analysis</h4>
+                <div class="quality-item">
+                    <span>Prompt Length</span>
+                    <span id="lengthScore" class="quality-score">-</span>
+                </div>
+                <div class="quality-item">
+                    <span>Clarity Score</span>
+                    <span id="clarityScore" class="quality-score">-</span>
+                </div>
+                <div class="quality-item">
+                    <span>Specificity (AI Keywords)</span>
+                    <span id="specificityScore" class="quality-score">-</span>
+                </div>
+            </div>
+            
+            <button class="btn btn-block" onclick="savePrompt()">💾 Save to Library (Ctrl+S)</button>
+            
+            <div class="shortcuts">
+                <strong>💡 Shortcuts:</strong> Ctrl+Enter = Test | Ctrl+S = Save
+            </div>
+        </div>
+        
+        <!-- Library -->
+        <div class="library-section">
+            <h3 class="section-title">📚 Prompt Library (<span id="libraryCount">0</span>)</h3>
+            <div id="promptLibrary" class="library"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
